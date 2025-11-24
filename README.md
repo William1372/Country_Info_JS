@@ -1,1 +1,1 @@
-<img width="1339" height="857" alt="image" src="https://github.com/user-attachments/assets/caf995d5-9896-48e0-8dbb-b7d412b7ae81" />
+![GIFFIFY TAK](https://github.com/user-attachments/assets/e934b6fc-332c-47cd-9973-0937824f4ce0)

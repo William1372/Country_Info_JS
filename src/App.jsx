@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SvgMap from "./SvgMap";
 import "./index.css";
+import useTimer from "./useTimer";
 
 function App() {
 
@@ -8,15 +9,17 @@ function App() {
   const [countryDetails, setCountryDetails] = useState(null);
   const [rounds, setRounds] = useState(0);
   const [startCountry, setStartCountry] = useState(null);
-  const [correctElement, setCorrectElement] = useState(null);
-  const [wrongElement, setWrongElement] = useState(null);
   const [countriesQuiz, setCountriesQuiz] = useState(["Greenland", "Iceland", "Ireland", "United Kingdom", "Spain", "Portugal", "Morocco", "Algeria", "Tunisia", "Italy", "France", "Belgium", "Netherlands", "Denmark", "Sweden", "Norway", "Finland", "Russia", "Estonia", "Lithuania", "Latvia", "Belarus", "Poland", "Germany", "Ukraine", "Romania", "Bulgaria", "Moldova", "Czechia", "Austria", "Hungary", "Greece", "North Macedonia", "Serbia", "Kosovo", "Croatia", "Slovenia", "Slovakia", "Montenegro", "Bosnia and Herzegovina", "Albania", "Kazakhstan", "Georgia", "Armenia", "Azerbaijan", "Iran", "Turkey", "Lebanon", "Syria", "Iraq", "Armenia", "Palestine", "Jordan", "Saudi Arabia", "Lebanon", "Cyprus", "Luxembourg", "Liechtenstein", ]);
   const [showInfo, setShowInfo] = useState(false);
+  const [timeLeft, setTimeLeft] = useTimer(10); 
 
   function clickHandler(event){
 
-    if (event.target === correctElement || event.target === wrongElement) return;
+    if (event.target.style.fill === "red" || event.target.style.fill === "green") return;
+
     if (!event.target.id) return;
+
+    if (timeLeft <= 0) return;
 
     setCountryElement(event.target);
 
@@ -29,6 +32,7 @@ function App() {
       setStartCountry(countriesQuiz[random]);
     }
   }, [countriesQuiz]);
+
 
 useEffect(() => {
 
@@ -52,17 +56,17 @@ useEffect(() => {
 
     setTimeout(() => {
       setShowInfo(false);
-    }, 1500);
-      if (!c.name) return;
+    }, 1000);
     if (c.name === startCountry) {
       countryElement.style.fill = "green";
-      setCorrectElement(countryElement);
       setRounds(prev => prev +1);
-    }else{
-      countryElement.style.fill = "red";
-      setWrongElement(countryElement);
-    }
       setCountriesQuiz(prev => prev.filter(x => x !== startCountry));
+      setTimeLeft(prev => prev + 10);
+    }
+    if(c.name !== startCountry){
+      countryElement.style.fill = "red";
+      setCountriesQuiz(prev => prev.filter(x => x !== startCountry));
+    }
       }
     )
     .catch(error => console.error('Error fetching country:"', error));
@@ -77,9 +81,11 @@ return (
     <div className="map-wrapper" onClick={clickHandler}>
       <SvgMap />
       <div className="quiz">
-        <p>Points: {rounds}/{countriesQuiz.length}</p>
-        <p>Country: {startCountry}</p>
+       <p>Points: {rounds}/{countriesQuiz.length}</p>
+       <p>Country: {startCountry}</p>
+       <p>Timer: {timeLeft > 0 ? timeLeft : "YOU LOST!"}</p>
       </div>
+
       {countryDetails && (
         <div className={`info-card ${showInfo ? "" : "hidden"}`}>
           <div className="info-row">

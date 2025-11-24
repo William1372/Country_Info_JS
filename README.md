@@ -1,1 +1,1 @@
-<img width="683" height="907" alt="image" src="https://github.com/user-attachments/assets/10673e21-fc77-4b54-85a5-a3068bd9f9e7" />
+<img width="1438" height="777" alt="Skærmbillede 2025-11-24 kl  09 56 34" src="https://github.com/user-attachments/assets/0782f781-0831-41b0-affa-494b2f022be7" />

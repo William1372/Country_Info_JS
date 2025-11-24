@@ -1,11 +1,11 @@
 body{
-  background: #d8ebf7;
+  background: #b3ddf7;
 }
 
 h1{
   text-align: center;
-  font-size: 36px;
-  margin-top: 30px;
+  font-size: 32px;
+  margin-top: 24px;
   color: black;
 }
 
@@ -13,10 +13,10 @@ h1{
   background: white;
   position: relative;
   width: 1200px;
-  margin: 40px auto;
+  margin: 30px auto;
   right: -25px;
-  border: 3px solid black;
-  border-radius: 12px; 
+  border: 3px solid rgb(75, 0, 205);
+  border-radius: 30px;
   box-sizing: border-box;
 }
 
@@ -24,6 +24,9 @@ svg{
   width: 65%;
   height: auto;
   display: block;
+  border: 3px solid rgb(75, 0, 205);
+  border-bottom-left-radius: 27px;
+  border-top-left-radius: 27px;
 }
 
 .info-card{
@@ -70,7 +73,7 @@ svg{
 
 .quiz{
   position: absolute;
-  bottom: -75px;
+  bottom: -90px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;

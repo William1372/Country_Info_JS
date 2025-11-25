@@ -232,14 +232,15 @@ function App() {
 
         <div className="quiz">
           <p>
-            Points: {rounds}/{countriesQuiz.length}
+            Points: {rounds}
+            {countriesQuiz.length > 0 && `/${countriesQuiz.length}`}
           </p>
           <p>Country: {startCountry}</p>
           <p>
             Timer:{" "}
             {timeLeft > 0 && countriesQuiz.length > 0
               ? `${timeLeft} second${timeLeft === 1 ? "" : "s"}`
-              : "YOU LOST!"}
+              : "TIME IS UP!"}
           </p>
           <div className="refresh-button">
             <button onClick={resetGame}>RESTART GAME</button>

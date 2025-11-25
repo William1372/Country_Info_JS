@@ -132,11 +132,7 @@ function App() {
   ];
 
   function clickHandler(event) {
-    if (
-      
-      event.target.style.fill === "green"
-    )
-      return;
+    if (event.target.style.fill === "green") return;
 
     if (!event.target.id) return;
 
@@ -202,6 +198,12 @@ function App() {
             setTimeLeft((prev) => prev + 5);
           }
           if (c.name !== startCountry) {
+            const originalFill = countryElement.style.fill;
+
+            setTimeout(() => {
+              countryElement.style.fill = originalFill;
+            }, 500);
+
             countryElement.style.fill = "red";
             const random = Math.floor(Math.random() * countriesQuiz.length);
             setStartCountry(countriesQuiz[random]);

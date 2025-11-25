@@ -1,5 +1,4 @@
 ![ReadMeGIF (1)](https://github.com/user-attachments/assets/cb491190-2bd2-4fd9-b629-88e736d109d0)
-
 # About The Project
 
 This project is an interactive geography quiz built with React. It challenges users to identify countries on an SVG map against a countdown timer. When a country is clicked, its information is fetched from the REST Countries API and displayed in a temporary info card.

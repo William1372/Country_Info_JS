@@ -133,7 +133,7 @@ function App() {
 
   function clickHandler(event) {
     if (
-      event.target.style.fill === "red" ||
+      
       event.target.style.fill === "green"
     )
       return;
@@ -203,7 +203,8 @@ function App() {
           }
           if (c.name !== startCountry) {
             countryElement.style.fill = "red";
-            setCountriesQuiz((prev) => prev.filter((x) => x !== startCountry));
+            const random = Math.floor(Math.random() * countriesQuiz.length);
+            setStartCountry(countriesQuiz[random]);
           }
         })
         .catch((error) => console.error('Error fetching country:"', error));
@@ -229,12 +230,12 @@ function App() {
 
         <div className="quiz">
           <p>
-            Points: {rounds}/{countriesQuiz.length - 1}
+            Points: {rounds}/{countriesQuiz.length}
           </p>
           <p>Country: {startCountry}</p>
           <p>
             Timer:{" "}
-            {timeLeft > 0
+            {timeLeft > 0 && countriesQuiz.length > 0
               ? `${timeLeft} second${timeLeft === 1 ? "" : "s"}`
               : "YOU LOST!"}
           </p>

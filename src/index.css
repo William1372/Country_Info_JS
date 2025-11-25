@@ -7,7 +7,7 @@ h1 {
 }
 
 .map-wrapper {
-  background: white;
+  background: rgb(255, 255, 255);
   position: relative;
   width: 1200px;
   margin: 30px auto;
@@ -30,8 +30,8 @@ svg {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 70%;
-  background: #d8ebf7;
+  left: 69%;
+  background: rgb(255, 217, 217);
   padding: 25px 30px;
   border-radius: 14px;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
@@ -70,9 +70,8 @@ svg {
 
 .quiz {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
   position: absolute;
-  bottom: -110px;
+  bottom: -120px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;

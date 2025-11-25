@@ -1,35 +1,32 @@
-body{
-  background: #b3ddf7;
-}
-
-h1{
+h1 {
   text-align: center;
-  font-size: 32px;
+  font-size: 36px;
   margin-top: 24px;
   color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.map-wrapper{
+.map-wrapper {
   background: white;
   position: relative;
   width: 1200px;
   margin: 30px auto;
   right: -25px;
-  border: 3px solid rgb(75, 0, 205);
+  border: 3px solid rgb(205, 0, 0);
   border-radius: 30px;
   box-sizing: border-box;
 }
 
-svg{
+svg {
   width: 65%;
   height: auto;
   display: block;
-  border: 3px solid rgb(75, 0, 205);
+  border: 3px solid rgb(205, 0, 0);
   border-bottom-left-radius: 27px;
   border-top-left-radius: 27px;
 }
 
-.info-card{
+.info-card {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -37,7 +34,7 @@ svg{
   background: #d8ebf7;
   padding: 25px 30px;
   border-radius: 14px;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -45,35 +42,37 @@ svg{
   border: 2px solid black;
 }
 
-.info-card p{
+.info-card p {
   margin: 0;
   font-size: 18px;
   padding: 8px;
   color: black;
 }
 
-.flags-row{
+.flags-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.flag-box img{
+.flag-box img {
   border-radius: 6px;
   border: 2px solid black;
   box-shadow: 0 6px 8px black;
 }
 
-.denmark-compare{
+.denmark-compare {
   font-size: 18px;
   text-align: center;
   font-weight: 700;
   color: black;
 }
 
-.quiz{
+.quiz {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   position: absolute;
-  bottom: -90px;
+  bottom: -110px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -82,16 +81,25 @@ svg{
   color: black;
 }
 
-.quiz p{
+.refresh-button button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #e2fdff;
+  color: black;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quiz p {
   margin: 3px 0;
 }
 
-.info-card{
+.info-card {
   opacity: 1;
   transition: opacity 1s ease;
 }
 
-.info-card.hidden{
+.info-card.hidden {
   opacity: 0;
   pointer-events: none;
 }

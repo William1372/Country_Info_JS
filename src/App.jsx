@@ -130,6 +130,7 @@ function App() {
     "Luxembourg",
     "Liechtenstein",
   ];
+  const gameEnded = timeLeft <= 0 || countriesQuiz.length === 0;
 
   function clickHandler(event) {
     if (event.target.style.fill === "green") return;
@@ -207,6 +208,7 @@ function App() {
             countryElement.style.fill = "red";
             const random = Math.floor(Math.random() * countriesQuiz.length);
             setStartCountry(countriesQuiz[random]);
+            setTimeLeft((prev) => prev - 2);
           }
         })
         .catch((error) => console.error('Error fetching country:"', error));
@@ -223,25 +225,36 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="parent-div">
       <title>Country Quiz JavaScript</title>
       <h1>Country Quiz & Info</h1>
 
       <div className="map-wrapper" onClick={clickHandler}>
         <SvgMap />
-
         <div className="quiz">
           <p>
-            Points: {rounds}
-            {countriesQuiz.length > 0 && `/${countriesQuiz.length}`}
+            <strong>Points:</strong> {rounds}
+            {!gameEnded && `/${countriesQuiz.length}`}
           </p>
-          <p>Country: {startCountry}</p>
+
           <p>
-            Timer:{" "}
-            {timeLeft > 0 && countriesQuiz.length > 0
-              ? `${timeLeft} second${timeLeft === 1 ? "" : "s"}`
-              : "TIME IS UP!"}
+            <strong>Country:</strong> {startCountry}
           </p>
+
+          <p>
+            {timeLeft > 0 && countriesQuiz.length > 0 ? (
+              <>
+                <strong>Timer:</strong> {timeLeft} second
+                {timeLeft === 1 ? "" : "s"}
+              </>
+            ) : (
+              <>
+                <strong>Time is up!</strong> <br />
+                <strong>Final score:</strong> {rounds}
+              </>
+            )}
+          </p>
+
           <div className="refresh-button">
             <button onClick={resetGame}>RESTART GAME</button>
           </div>

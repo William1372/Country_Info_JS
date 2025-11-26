@@ -6,13 +6,18 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.parent-div h1 {
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
 .map-wrapper {
   background: rgb(255, 255, 255);
   position: relative;
   width: 1200px;
   margin: 30px auto;
   right: -25px;
-  border: 3px solid rgb(205, 0, 0);
+  border: 3px solid #ffbdbd;
   border-radius: 30px;
   box-sizing: border-box;
 }
@@ -21,9 +26,8 @@ svg {
   width: 65%;
   height: auto;
   display: block;
-  border: 3px solid rgb(205, 0, 0);
-  border-bottom-left-radius: 27px;
-  border-top-left-radius: 27px;
+  border: 3px solid rgb(228, 228, 228);
+  border-radius: 27px;
 }
 
 .info-card {
@@ -39,7 +43,7 @@ svg {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border: 2px solid black;
+  border: 2px solid rgb(172, 172, 172);
 }
 
 .info-card p {
@@ -76,7 +80,6 @@ svg {
   transform: translateX(-50%);
   text-align: center;
   font-size: 20px;
-  font-weight: 700;
   color: black;
 }
 
@@ -91,6 +94,9 @@ svg {
 
 .quiz p {
   margin: 3px 0;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  font-size: 22px;
 }
 
 .info-card {
